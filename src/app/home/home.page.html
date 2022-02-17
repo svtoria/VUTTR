@@ -1,20 +1,64 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="container">
+    <div class="content">
+      <p class="title">VUTTR</p>
+      <p class="subtitle">Very Usefull Tools to Remember</p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <div class="align">
+        <div style="display: flex; flex-direction: row;">
+          <div class="border">
+            <ion-icon name="search-outline"></ion-icon>
+            <input [formControl]="searchedTool" type="text" placeholder="search">
+          </div>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="isChecked"></ion-checkbox>
+          <ion-label>search in tags only</ion-label>
+        </div>
+        <div (click)="showModal()" class="button">
+          <img src="../../assets/img/add.svg" alt="add">
+          <p>Add</p>
+        </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      </div>
+
+      <div *ngFor="let tool of tools; let i = index" class="card">
+        <div class="align">
+          <a href="{{tool.link}}">{{tool.title}}</a>
+          <div (click)="removeTool(tool.id)" style="display: flex; flex-direction: row; cursor: pointer">
+            <ion-icon name="close-outline"></ion-icon>
+            <ion-label>remove</ion-label>
+          </div>
+        </div>
+        <p>{{tool.description}}</p>
+        <div class="align-tags">
+          <div *ngFor="let tag of tool.tags">
+            <p>#{{tag}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [class]="showModalAdd ? 'shadow' : 'shadow-hidden'" class="shadow">
+      <div class="add-tool-modal">
+        <ion-label>Tool Name</ion-label>
+        <input type="text" [(ngModel)]="newTool.newTitle">
+        <ion-label>Tool Link</ion-label>
+        <input type="url" [(ngModel)]="newTool.newLink">
+        <ion-label>Tool Description</ion-label>
+        <textarea [(ngModel)]="newTool.newDescription"></textarea>
+        <ion-label>Tags</ion-label>
+        <input type="text" [(ngModel)]="newTool.newTags" placeholder="api localhost json nest">
+
+        <div class="align">
+          <div (click)="addTool()" class="button">
+            <p>Add tool</p>
+          </div>
+
+          <div (click)="showModal()" class="button">
+            <p>Cancel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </ion-content>
