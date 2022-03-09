@@ -1,7 +1,7 @@
 # VUTTR
 
 Desafio de front-end: https://gitlab.com/bossabox/challenge-fake-api/tree/master. <br><br>
-Very Useful Tools to Remember é um desafio no qual foi utilizado uma API fake pra treinar os conhecimentos nas requisições http GET, POST e DELETE utilizando NodeJS.
+Very Useful Tools to Remember é um desafio no qual foi utilizado uma API fake pra treinar os conhecimentos nas requisições http GET, POST e DELETE. Utilizei Angular/Ionic e NodeJS.
 
 ## Screenshot
 
