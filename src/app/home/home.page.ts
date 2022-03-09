@@ -58,11 +58,11 @@ export class HomePage {
     if (this.newTool.newTitle !== '' && this.newTool.newDescription !== '' && this.newTool.newLink !== '') {
 
       const payload = {
-        id: 0,
+        id: Math.floor(Math.random() * 50),
         title: `${this.newTool.newTitle}`,
         link: `${this.newTool.newLink}`,
         description: `${this.newTool.newDescription}`,
-        tags: this.newTool.newTags.split(' ')
+        tags: this.newTool.newTags.split(' '),
       };
 
       this.http.post(`http://localhost:3000/tools`, payload).subscribe(r => {
@@ -74,6 +74,7 @@ export class HomePage {
         };
         this.tools.push(payload);
         this.showModal();
+        console.log(payload.id);
         Notify.success('Tool added successfully');
       });
     } else {
