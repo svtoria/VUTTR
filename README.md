@@ -6,9 +6,3 @@ Very Useful Tools to Remember é um desafio no qual foi utilizado uma API fake p
 ## Screenshot
 
 ![image](https://user-images.githubusercontent.com/78829806/157530768-0056b0ab-4411-48f4-a8ea-b71bff31799b.png)
-
-## Se quiser rodar o projeto na sua máquina: 
-
-```
-git clone
-```
